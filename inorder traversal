@@ -1,0 +1,41 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node* left;
+    struct node* right;
+};
+ struct node* newnode(int data)
+     
+ //newnode functionn
+ { 
+     struct node* node=(struct node*)malloc(sizeof(struct node));//memory allocation
+     node->data=data;
+     node->left=NULL;
+     node->right=NULL;
+     return node;
+ }
+ 
+void Inorder(struct node* node)
+ 
+ {
+     if(node==NULL)
+     {
+         return ;
+     }
+     Inorder( node->left);
+     printf("%d",node->data);
+     Inorder(node->right);
+ }
+int main() {
+    //no user defined values
+    struct node*root=newnode(1);
+    root->left=newnode(2);
+    root->right=newnode(3);
+    
+    printf("Inorder trversal is ");
+  Inorder(root);
+
+    return 0;
+}
